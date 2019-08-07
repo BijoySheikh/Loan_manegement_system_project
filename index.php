@@ -114,8 +114,7 @@
       </div>
     </div>
   </section>
-
-
+<!-- service section end -->
 
 
 
@@ -158,15 +157,6 @@
       </div>
     </div>
   </section>
-
-<!-- 
-  <form action="insert.php" method="POST">
-    name: <input type="text" name= "username">
-    email : <input type="email"name="email">
-    <input type="submit" value="Insert Data">
-
-</form> -->
- 
 
 
   
