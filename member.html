@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Creative - Start Bootstrap Theme</title>
+
+  <!-- Font Awesome Icons -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <!-- Plugin CSS -->
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="vendor/jquery/jquery-ui.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
+  <link rel="stylesheet" type="text/css" href="css/slick.css"/>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/datatables.min.css"/>
+
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link href="css/creative.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/jquery/jquery-ui.min.js"></script>
+
+</head>
+
+<body id="page-top">
+
+ 
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-secondary fixed-top py-3" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto my-2 my-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="index.html">হোম</a>
+                </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">কমিটি</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="member.html">সদস্য</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">হিসাব</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+   
+
+
+<!-- table -->
+<section class="member_table page-section">
+      <div class="container">
+          <div class="col-md-12">
+ 
+              <table id="user_data" class="table table_row table-bordered">
+                  <thead class=""> 
+                      <tr class="bg_thead">
+                        <th scope="col">কিস্তি সংখ্যা</th>
+                        <th scope="col">তারিখ</th>
+                        <th scope="col">আদায়</th>
+                        <th scope="col">সঞ্চয়</th>
+                        <th scope="col">মোট আদায়</th>
+                        <th scope="col">মোট বাকী</th>
+                        <th scope="col">ডিলিট</th>
+                      </tr>
+                  </thead>
+                  <tbody id="">
+                      <tr>   
+                      </tr>
+                  </tbody>
+              </table>
+              <button type="button" class="delete-row btn btn-danger btn- float-right">ডিলিট করুন</button>
+
+          </div>
+      </div>
+</section>
+<!-- /table -->
+
+
+
+
+<div class="premium_input">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            <table>
+                <tr>
+                    <th><input  onclick="document.getElementById('sirial').value = ''" autocomplete="off" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "3" id="sirial"  maxlength="4"  placeholder="ক্রমিক নং"></th>
+                    <th><input onclick="document.getElementById('datepicker').value = ''" autocomplete="off" type="text" id="datepicker" placeholder="তারিখ" min="2010-01-01" value=""></th>
+                    <th><input onclick="document.getElementById('collect').value = ''" autocomplete="off" id="collect"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "8"  placeholder="জমা"></th>
+                    <th><input onclick="document.getElementById('pre_total_recived').value = ''" autocomplete="off"  id="pre_total_recived"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "4"placeholder="সঞ্চয়"></th>
+                    <th><input onclick="document.getElementById('collect').value = ''" autocomplete="off" type="text" id="name"  placeholder="Name"></th>
+                    <th><input onclick="document.getElementById('collect').value = ''" autocomplete="off" type="text" id="name"  placeholder="Name"></th>
+                    <th><button type="button" class="add-row btn btn-success  btn-sm" value="Add Row">add row</button></th>
+                  </tr>
+            </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function(){
+            var i = 1;
+        $(".add-row").click(function(){
+            i++;
+            var sirial = $("#sirial").val();
+            var date = $("#datepicker").val();
+            var collect = $("#collect").val();
+            var pre_total_recived = $("#pre_total_recived").val();
+            var markup = "<tr id='sirial" + i +"'><td>" + sirial + "</td><td>" + date + "</td><td>" + collect + "</td><td>" + pre_total_recived + "</td><td>" + collect + "</td><td>" + collect + "</td><td><input type='checkbox' name='record'></td></tr>";
+            $(".table_row").append(markup);
+        });
+        
+        // Find and remove selected table rows
+        $(".delete-row").click(function(){
+            $("table tbody").find('input[name="record"]').each(function(){
+                if($(this).is(":checked")){
+                    $(this).parents("tr").remove();
+                }
+            });
+        });
+    });    
+
+
+
+</script>
+  
+
+  <!-- <div class="row">
+      <div class="col-md-12">
+          <div class="add_row_btn float-right">
+              <a class="btn btn-danger mb-3 ml-5 "  href="#" id="add_row">add row</a>  
+              <a class="btn btn-danger mb-3 ml-5 "  href="#" id="add_row">add row</a>  
+          </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-sm-12 col-xs-12">            
+          <table class="table  table-hover table table-bordered  table-responsive-sm">
+            <thead class="thead-light text-center">          
+                <tr> 
+                  <th scope="col">ক্রমিক নং</th>
+                  <th scope="col">তারিখ</th>
+                  <th scope="col">জমা</th>
+                  <th scope="col">Handle</th>
+                  <th scope="col">Handle</th>
+                  <th scope="col">Handle</th>
+                  <th scope="col">Handle</th>
+                </tr>                     
+            </thead>     
+            <tbody>
+                <tr>
+                  <th scope="row">১</th>
+                  <td></td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                  <td>@mdo</td>
+                  <td>@mdo</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">২</th>
+                  <td>fsdfasf</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                  <td>@fat</td>
+                  <td>@fat</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">৩</th>
+                  <td>dgdsgd</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                  <td>@twitter</td>
+                  <td>@twitter</td>
+                  <td>@twitter</td>
+                </tr>
+            </tbody>
+      </table>
+      </div>           
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="add_row_btn float-right">
+                <a class="btn btn-danger mb-3 ml-5 "  href="#" id="add_row">add row</a>  
+                <a class="btn btn-danger mb-3 ml-5 "  href="#" id="delete_row">add row</a>  
+            </div>
+        </div>
+      </div> -->
+ 
+
+  <!-- Bootstrap core JavaScript -->
+ 
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script type="text/javascript" src="js/slick.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/creative.js"></script>
+</body>
+
+</html>
