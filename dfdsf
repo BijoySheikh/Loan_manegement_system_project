@@ -1,0 +1,43 @@
+[1mdiff --git a/insert.php b/insert.php[m
+[1mindex 02c6ccf..dc8a5fe 100644[m
+[1m--- a/insert.php[m
+[1m+++ b/insert.php[m
+[36m@@ -1,8 +1,8 @@[m
+ [m
+[31m-[m
+ <?php[m
+ $connect = mysqli_connect("localhost", "root", "", "torun");[m
+[31m-if(isset($_POST["m_name"], $_POST["f_name"]))[m
+[32m+[m
+[32m+[m[32mif(isset($_POST["m_name"], $_POST["f_name"], $_POST["phone_no"], $_POST["refer_name"], $_POST["present_addr"], $_POST["permanent_addr"], $_POST["upload_img"], $_POST["loan_sirial"], $_POST["loan_date"], $_POST["loan_amount"], $_POST["profit_amount"], $_POST["total_amount"], $_POST["premier_amount"], $_POST["savings_amount"]))[m
+ {[m
+ [m
+  $m_name = mysqli_real_escape_string($connect, $_POST["m_name"]);[m
+[36m@@ -15,14 +15,23 @@[m [mif(isset($_POST["m_name"], $_POST["f_name"]))[m
+  $loan_sirial = mysqli_real_escape_string($connect, $_POST["loan_sirial"]);[m
+  $loan_date = mysqli_real_escape_string($connect, $_POST["loan_date"]);[m
+  $loan_amount = mysqli_real_escape_string($connect, $_POST["loan_amount"]);[m
+[32m+[m[32m $profit_amount = mysqli_real_escape_string($connect, $_POST["profit_amount"]);[m
+[32m+[m[32m $total_amount = mysqli_real_escape_string($connect, $_POST["total_amount"]);[m
+  $premier_amount = mysqli_real_escape_string($connect, $_POST["premier_amount"]);[m
+  $savings_amount = mysqli_real_escape_string($connect, $_POST["savings_amount"]);[m
+ [m
+ [m
+[31m- $query = "INSERT INTO member_data (m_name, f_name, phone_no, refer_name, present_addr, permanent_addr, upload_img, loan_sirial, loan_date, loan_amount, premier_amount, savings_amount ) VALUES('$m_name', '$f_name', '$phone_no', '$refer_name', '$present_addr', '$permanent_addr', '$upload_img', '$loan_sirial', '$loan_date', '$loan_amount', '$premier_amount', '$savings_amount')";[m
+[32m+[m[32m $query = "INSERT INTO member_data (m_name, f_name, phone_no, refer_name, present_addr, permanent_addr, upload_img, loan_sirial, loan_date, loan_amount, profit_amount, total_amount, premier_amount, savings_amount )[m
+[32m+[m[32m VALUES('$m_name', '$f_name', '$phone_no', '$refer_name', '$present_addr', '$permanent_addr','$upload_img', '$loan_sirial', '$loan_date', '$loan_amount', '$profit_amount', '$total_amount', '$premier_amount', '$savings_amount')";[m
+  if(mysqli_query($connect, $query))[m
+  {[m
+   echo 'Data Inserted';[m
+  }[m
+[32m+[m[32melse{[m
+[32m+[m[32m    echo 'Data Not Inserted';[m
+[32m+[m[32m}[m
+ }[m
+[31m-?>[m
+\ No newline at end of file[m
+[32m+[m[32m?>[m[41m [m
+[41m+[m
+[41m+[m
+[41m+ [m
+\ No newline at end of file[m
