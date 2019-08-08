@@ -1,0 +1,36 @@
+[33mcommit 9fedee670bf9feb383904cbe6361a69198f1480d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: bipul <mdbijoysheikh1@gmail.com>
+Date:   Thu Aug 8 03:48:30 2019 +0600
+
+    test commit
+
+[1mdiff --git a/index.php b/index.php[m
+[1mindex fb9d662..1b315a3 100644[m
+[1m--- a/index.php[m
+[1m+++ b/index.php[m
+[36m@@ -114,8 +114,7 @@[m
+       </div>[m
+     </div>[m
+   </section>[m
+[31m-[m
+[31m-[m
+[32m+[m[32m<!-- service section end -->[m
+ [m
+ [m
+ [m
+[36m@@ -159,15 +158,6 @@[m
+     </div>[m
+   </section>[m
+ [m
+[31m-<!-- [m
+[31m-  <form action="insert.php" method="POST">[m
+[31m-    name: <input type="text" name= "username">[m
+[31m-    email : <input type="email"name="email">[m
+[31m-    <input type="submit" value="Insert Data">[m
+[31m-[m
+[31m-</form> -->[m
+[31m- [m
+[31m-[m
+ [m
+   [m
+   <section class="page-section" id="about">[m
